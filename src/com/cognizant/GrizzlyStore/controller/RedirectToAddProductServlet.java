@@ -1,24 +1,23 @@
 package com.cognizant.GrizzlyStore.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.cognizant.GrizzlyStore.service.ListProductService;
-import com.cognizant.GrizzlyStore.service.ListProductServiceImpl;
-
 /**
- * Servlet implementation class ListProductServlet
+ * Servlet implementation class RedirectToAddProductServlet
  */
-public class ListProductServlet extends HttpServlet {
+public class RedirectToAddProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListProductServlet() {
+    public RedirectToAddProductServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,9 +28,10 @@ public class ListProductServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		ListProductService lps=ListProductServiceImpl.getInstance();
-		 lps.displayProduct();
-		 
+		 RequestDispatcher requestDispatcher=null;
+		
+		requestDispatcher=request.getRequestDispatcher("Admin-AddProducts.jsp");
+		requestDispatcher.forward(request,response);
 	}
 
 }

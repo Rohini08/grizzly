@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cognizant.GrizzlyStore.bean.Product;
+import com.cognizant.GrizzlyStore.service.AddProductService;
+import com.cognizant.GrizzlyStore.service.AddProductServiceImpl;
+
 
 /**
  * Servlet implementation class AddProductServlet
@@ -28,11 +31,13 @@ public class AddProductServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String productId="abc";
-		String category="abc";
-		String description="hfdsavb";
-		String name="asdfgh";
-		float price=20;
+		
+		String productId=request.getParameter("productId");
+		String category=request.getParameter("");
+		String description=request.getParameter("productDescription");
+		String name=request.getParameter("productName");
+		float price=Float.parseFloat(request.getParameter("productPrice"));
+		String brand=request.getParameter("brand");
 			 
 		Product pro=new Product();
 		
@@ -41,6 +46,12 @@ public class AddProductServlet extends HttpServlet {
 		pro.setDescription(description);
 		pro.setName(name);
 		pro.setPrice(price);
+		pro.setBrand(brand);
+		
+		AddProductService addProductService=AddProductServiceImpl.getInstance();
+		  
+		addProductService.insertProduct(pro);
+		
 		
 		
 	}

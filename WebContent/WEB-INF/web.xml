@@ -32,6 +32,12 @@
 		<description></description>
 		<servlet-class>com.cognizant.GrizzlyStore.controller.ViewProductServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>RedirectToAddProductServlet</servlet-name>
+		<display-name>RedirectToAddProductServlet</display-name>
+		<description></description>
+		<servlet-class>com.cognizant.GrizzlyStore.controller.RedirectToAddProductServlet</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>AddProductServlet</servlet-name>
 		<url-pattern>/AddProductServlet</url-pattern>
@@ -51,6 +57,10 @@
 	<servlet-mapping>
 		<servlet-name>ViewProductServlet</servlet-name>
 		<url-pattern>/ViewProductServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RedirectToAddProductServlet</servlet-name>
+		<url-pattern>/RedirectToAddProductServlet</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

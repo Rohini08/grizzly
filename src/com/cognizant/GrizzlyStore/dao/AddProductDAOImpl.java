@@ -32,7 +32,7 @@ public class AddProductDAOImpl implements AddProductDAO {
 
 	public String insertProduct(Product product) {
 		// TODO Auto-generated method stub
-		String query="insert into product(productid,category,name,description,price) values(?,?,?,?,?)";
+		String query="insert into product(productid,category,name,description,price,brand) values(?,?,?,?,?,?)";
 		Connection connection=null;
 		PreparedStatement preparedStatement=null;
 		connection=DBUtils.getConnection();
@@ -43,13 +43,20 @@ public class AddProductDAOImpl implements AddProductDAO {
 			preparedStatement.setString(3,product.getName());
 			preparedStatement.setString(4,product.getDescription());
 			preparedStatement.setFloat(5,product.getPrice());
+			preparedStatement.setString(6,product.getBrand());
 			
 			int result=preparedStatement.executeUpdate();
 			
 			System.out.print(result);
-				
-			
+				connection.commit();
+			return "success";
 		} catch (SQLException e1) {
+			try {
+				connection.rollback();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}

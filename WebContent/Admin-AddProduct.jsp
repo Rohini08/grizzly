@@ -61,7 +61,7 @@
   <body>
     <nav class="navbar navbar-expand-md navbar-light bg-light">
       <a class="navbar-brand" href="#">
-        <img src="images/smlogo.png" alt="logo">
+        <img src="images/icon-grizzly.png" alt="logo">
       </a>
       <form class="mx-2 my-auto d-inline">
         <div class="input-group topnav1">
